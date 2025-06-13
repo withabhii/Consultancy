@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>About Us | CounSellore</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --white: #ffffff;
+            --text: #333333;
+            --text-light: #555555;
+            --light-gray: #bdc3c7;
+            --header-height: 90px;
+            --header-height-scrolled: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text);
+            background-color: #f8f9fa;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 18px 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            min-height: calc(var(--header-height-scrolled) - 20px);
+        }
+
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            height: 60px;
+            width: auto;
+            transition: height 0.3s ease;
+        }
+
+        header.scrolled .logo-icon {
+            height: 40px;
+        }
+
+        .logo-name {
+            height: 40px;
+            width: auto;
+            transition: all 0.3s ease;
+            margin-left: -30px;
+            margin-top: 8px;
+        }
+
+        header.scrolled .logo-name {
+            height: 25px;
+            margin-left: -20px;
+            margin-top: 5px;
+        }
+
+        /* Navigation Links */
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin-left: 28px;
+            position: relative;
+        }
+
+        .nav-links li:first-child {
+            margin-left: 0;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links>li>a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown>a .dropdown-icon {
+            margin-left: 6px;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--white);
+            width: 230px;
+            border-radius: 6px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown:hover>a .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px !important;
+            display: flex;
+            align-items: center;
+            color: var(--primary) !important;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light);
+            color: var(--secondary) !important;
+        }
+
+        .dropdown-menu i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        /* Account Button */
+        .account-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary) !important;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            padding: 0 !important;
+        }
+
+        .account-btn:hover {
+            background: rgba(52, 152, 219, 0.2);
+            transform: scale(1.05);
+        }
+
+        .account-text {
+            display: none;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1005;
+            padding: 10px;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-container {
+                position: fixed;
+                top: 0;
+                /* MODIFICATION: Changed from left to right */
+                right: -100%;
+                left: auto;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: calc(var(--header-height) + 20px) 30px 30px;
+                /* MODIFICATION: Changed transition property */
+                transition: right 0.35s ease-in-out;
+                /* MODIFICATION: Flipped box-shadow to the left */
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1003;
+                overflow-y: auto;
+            }
+
+            .nav-container.active {
+                /* MODIFICATION: Changed from left to right */
+                right: 0;
+            }
+
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1002;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.35s ease;
+            }
+
+            .nav-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 12px 0;
+                font-size: 1.05rem;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--light);
+            }
+
+            .nav-links>li>a:hover::after {
+                width: 0;
+            }
+
+            .nav-links li:last-child>a {
+                border-bottom: none;
+            }
+
+            /* Mobile Dropdown styles */
+            .dropdown>a .dropdown-icon {
+                transform: rotate(0deg);
+            }
+
+            .dropdown.active>a .dropdown-icon {
+                transform: rotate(180deg);
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border: none;
+                border-top: 1px solid var(--light);
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding: 0 0 0 15px;
+                margin-top: 0;
+                max-height: 0;
+                overflow: hidden;
+                background-color: transparent;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            .dropdown.active .dropdown-menu {
+                max-height: 500px;
+            }
+
+            .dropdown-menu li a {
+                font-size: 0.95rem;
+                padding: 10px 0 !important;
+                border-bottom: 1px solid #f5f5f5;
+            }
+
+            .dropdown-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            /* Account button in mobile */
+            .account-item {
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid var(--light-gray);
+            }
+
+            .account-btn {
+                width: 100%;
+                border-radius: 0;
+                justify-content: flex-start;
+                padding: 12px 0 !important;
+                height: auto;
+                background-color: transparent !important;
+                color: var(--primary) !important;
+                font-size: 1.05rem;
+                font-weight: 500;
+            }
+
+            .account-btn:hover {
+                color: var(--secondary) !important;
+                transform: none;
+            }
+
+            .account-btn i {
+                color: var(--primary);
+                margin-right: 10px;
+                font-size: 1.1em;
+            }
+
+            .account-text {
+                display: inline;
+            }
+
+            /* Adjust logo for mobile */
+            .logo-icon {
+                height: 50px;
+            }
+
+            header.scrolled .logo-icon {
+                height: 40px;
+            }
+
+            .logo-name {
+                height: 30px;
+                margin-left: -25px;
+                margin-top: 6px;
+            }
+
+            header.scrolled .logo-name {
+                height: 25px;
+                margin-left: -20px;
+                margin-top: 5px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-icon {
+                height: 45px;
+            }
+
+            .logo-name {
+                height: 25px;
+                margin-left: -20px;
+                margin-top: 5px;
+            }
+        }
+
+        /* === PAGE-SPECIFIC STYLES BELOW === */
+        .hero {
+            background-color: var(--primary);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: var(--header-height);
+            transition: margin-top 0.3s ease;
+        }
+
+        header.scrolled+.hero {
+            margin-top: var(--header-height-scrolled);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8) 0%, rgba(44, 62, 80, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .about-section,
+        .mission-values,
+        .services-section,
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark);
+            position: relative;
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 15px auto 0;
+        }
+
+        /* Other styles remain the same */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .about-image>div {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-content h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .mission-values {
+            background-color: var(--white);
+        }
+
+        .mission-values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .mission-card,
+        .values-card {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 24px;
+        }
+
+        .services-section {
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .service-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+        }
+
+        .team-section {
+            background-color: var(--white);
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 230px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 16px;
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.85;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            transform: translateX(4px);
+            color: var(--secondary);
+        }
+
+        .footer-links a::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 8px;
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        .subscribe-form .form-group {
+            margin-bottom: 12px;
+        }
+
+        .subscribe-form .form-control {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.15);
+            font-size: 0.95rem;
+            padding: 10px 14px;
+        }
+
+        .subscribe-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .subscribe-form .btn {
+            width: 90%;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .copyright a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright a b.text-primary {
+            color: var(--secondary) !important;
+        }
+
+        @media (max-width: 992px) {
+
+            .about-grid,
+            .mission-values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .about-section,
+            .mission-values,
+            .services-section,
+            .team-section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .team-intro .btn {
+                width: auto;
+            }
+
+            .footer-col {
+                min-width: 100%;
+                text-align: center;
+            }
+
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="home.html" class="logo">
+                        <img src="Images/couns2.png" alt="CounSellore Logo" class="logo-icon">
+                        <img src="Images/name2.png" alt="CounSellore" class="logo-name">
+                    </a>
+                </div>
+
+                <div class="nav-container" id="navContainer">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="home.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#services">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services</a></li>
+                                <li><a href="ca.html"><i class="fas fa-calculator"></i> CA Services</a></li>
+                                <li><a href="cs.html"><i class="fas fa-briefcase"></i> CS Services</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="home.html?#contact-section">Contact</a></li>
+                        <li class="account-item">
+                            <a href="login.html" class="account-btn" aria-label="Account">
+                                <i class="fas fa-user-tie"></i>
+                                <span class="account-text">Account</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Page content follows -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About CounSellore</h1>
+            <p>Your trusted partner for exceptional legal, financial, and corporate compliance solutions.</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div
+                        style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop');">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>Bridging Expertise For Your Success</h2>
+                    <p>Founded in 2010, CounSellore began with a vision to create a comprehensive platform that brings
+                        together exceptional talent across legal practice, chartered accountancy, and company
+                        secretarial services.</p>
+                    <p>Our journey has been defined by a relentless commitment to excellence, integrity, and client
+                        success. We empower businesses and individuals by providing clear, strategic, and integrated
+                        solutions to complex challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-values">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Values</h2>
+            <div class="mission-values-grid">
+                <div class="mission-card">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To provide accessible, high-quality professional services by connecting clients with verified
+                        experts. We strive to simplify complex challenges through a transparent, accountable, and
+                        excellent platform.</p>
+                </div>
+                <div class="values-card">
+                    <div class="card-icon"><i class="fas fa-star"></i></div>
+                    <h3>Our Core Values</h3>
+                    <ul>
+                        <li><strong>Excellence:</strong> Highest standards of professional service.</li>
+                        <li><strong>Integrity:</strong> Upholding ethical practices and transparency.</li>
+                        <li><strong>Collaboration:</strong> Interdisciplinary cooperation for holistic solutions.</li>
+                        <li><strong>Client-Centricity:</strong> Prioritizing the unique needs of each client.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h3>Legal Services</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Comprehensive legal solutions tailored to your specific needs with expert attorneys.</p>
+                        <a href="law.php" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-calculator"></i></div>
+                        <h3>CA Services</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Expert financial and accounting services to help your business thrive and ensure compliance.
+                        </p>
+                        <a href="ca.php" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                        <h3>CS Services</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Professional corporate secretarial services to ensure compliance and robust governance.</p>
+                        <a href="cs.php" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">The Team Behind CounSellore</h2>
+            <div class="team-intro">
+                <p>CounSellore is powered by a dedicated team of professionals who work tirelessly to maintain the
+                    quality and integrity of our platform. Our management team brings together decades of experience.
+                </p>
+                <a href="team.php" class="btn">Meet Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>About CounSellore</h4>
+                    <p>We are a full-service legal and financial consulting firm dedicated to providing strategic
+                        solutions for businesses and individuals.</p>
+                    <p>Our multidisciplinary approach ensures comprehensive support for all your professional needs.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="home.html#contact">Contact Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Practice Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="team.html">Corporate Law</a></li>
+                        <li><a href="team.html">Taxation Services</a></li>
+                        <li><a href="team.html">Intellectual Property</a></li>
+                        <li><a href="team.html">Mergers & Acquisitions</a></li>
+                        <li><a href="team.html">Dispute Resolution</a></li>
+                        <li><a href="team.html">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscribe</h4>
+                    <p>Stay updated with our latest insights and legal updates.</p>
+                    <form class="subscribe-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© <span id="currentYear"></span> CounSellore Consultants. All Rights Reserved.</p>
+                <p>Designed & Powered by <a href="https://www.instagram.com/logic_minds_by_parii/" target="_blank"
+                        rel="noopener noreferrer"><b class="text-primary">Logic Minds by Parii</b></a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT: This script correctly handles all navigation functionality. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+            const body = document.body;
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navContainer = document.getElementById('navContainer');
+            const navLinks = document.getElementById('navLinks');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const accountItem = document.querySelector('.account-item');
+            const currentYear = document.getElementById('currentYear');
+
+            // Header scroll effect
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    body.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                    body.classList.remove('header-scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    navContainer.classList.toggle('active');
+
+                    // Toggle aria-expanded attribute
+                    const isExpanded = navContainer.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
+
+                    // Toggle body overflow
+                    document.body.style.overflow = isExpanded ? 'hidden' : '';
+                });
+            }
+
+            // Mobile dropdown toggle
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 992) { // Only for mobile
+                        e.preventDefault();
+
+                        // Close other dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) d.classList.remove('active');
+                        });
+
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (navContainer.classList.contains('active') &&
+                    !navContainer.contains(e.target) &&
+                    !mobileMenuToggle.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    navContainer.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Set current year in footer
+            if (currentYear) {
+                currentYear.textContent = new Date().getFullYear();
+            }
+
+            // Close dropdowns when clicking on a link (for mobile)
+            const navLinksAll = document.querySelectorAll('.nav-links a:not(.dropdown > a)');
+            navLinksAll.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 992) {
+                        mobileMenuToggle.classList.remove('active');
+                        navContainer.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Compliance Services | CounSellore Consultants</title>
+    <style>
+    /* Blue theme */
+    :root {
+        --primary: #1e3a8a;
+        --secondary: #3b82f6;
+        --accent: #2563eb;
+        --light: #f0f9ff;
+        --dark: #1e293b;
+        --text: #334155;
+        --text-light: #64748b;
+        --highlight: #dbeafe;
+    }
+
+    /* Base styles */
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .section-title p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .btn {
+        display: inline-flex;
+        /* For icon alignment */
+        align-items: center;
+        justify-content: center;
+        background-color: var(--accent);
+        color: white !important;
+        padding: 12px 25px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid var(--accent);
+        cursor: pointer;
+    }
+
+    .btn i {
+        margin-right: 8px;
+    }
+
+    .btn:hover {
+        background-color: transparent;
+        color: var(--accent) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--accent) !important;
+        border: 2px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--accent);
+        color: white !important;
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+
+    /* Header styles */
+    #header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: white;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    #header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        min-height: 70px;
+    }
+
+    /* Logo Styles */
+    .logo {
+        /* Applied to the <a> tag */
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    /* Removed .logo a.hrf as .logo is now the <a> tag */
+
+    .logo-icon {
+        height: 60px;
+        width: auto;
+    }
+
+    .logo-name {
+        height: 40px;
+        width: auto;
+        transition: all 0.3s ease;
+        margin-left: -30px;
+        margin-top: 8px;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+       
+    }
+
+    .nav-links li {
+        margin-left: 30px;
+        position: relative;
+    }
+
+    .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        padding: 10px 0;
+        position: relative;
+    }
+
+    .nav-links a:hover {
+        color: var(--accent);
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--accent);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown>a i.fa-chevron-down {
+        margin-left: 5px;
+        font-size: 0.8em;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 220px;
+        border-radius: 4px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 1000;
+        border: 1px solid #e2e8f0;
+        transform: translateY(10px);
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(5px);
+    }
+
+    .dropdown-menu li {
+        margin: 0;
+        list-style: none;
+    }
+
+    .dropdown-menu a {
+        padding: 10px 20px !important;
+        /* Overrides nav-links a padding */
+        display: flex;
+        align-items: center;
+        color: var(--dark) !important;
+        transition: all 0.2s;
+        font-size: 0.95rem;
+    }
+
+
+    .dropdown-menu a:hover {
+        background: rgba(0, 0, 0, 0.03);
+        color: var(--accent) !important;
+    }
+
+    .dropdown-menu i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+
+    /* Account Button in Navbar */
+    .nav-links .nav-account-li {
+        margin-left: 25px;
+    }
+
+    .account-btn-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: auto;
+        border-radius: 50%;
+        background: rgba(37, 99, 235, 0.08);
+        /* Using accent's base color for consistency */
+        color: var(--accent);
+        /* Using accent color */
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .account-btn-nav .account-text-nav {
+        display: none;
+    }
+
+    .account-btn-nav:hover {
+        background: rgba(37, 99, 235, 0.15);
+        /* Using accent's base color for consistency */
+        transform: scale(1.05);
+    }
+
+    .account-btn-nav::after {
+        /* No underline for account button */
+        display: none;
+    }
+
+    /* Mobile Menu Toggle Button */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1100;
+    }
+
+    .menu-toggle span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero section */
+    .cs-hero {
+        background: linear-gradient(105deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.85) 100%), url('Images/cs.avif') no-repeat center center;
+        background-size: cover;
+        height: 80vh;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        color: white;
+        padding-top: 70px;
+        /* Account for sticky header */
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 20px;
+        /* Increased gap for hero buttons */
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        /* Default for desktop */
+    }
+
+    .btn-hero {
+        /* Specific class for hero buttons */
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        /* Subtle shadow for depth */
+    }
+
+    .btn-hero i {
+        margin-right: 10px;
+    }
+
+    .btn-hero.btn-outline {
+        /* Hero outline button specific */
+        color: white !important;
+        border-color: white !important;
+    }
+
+    .btn-hero.btn-outline:hover {
+        background-color: white !important;
+        color: var(--primary) !important;
+        /* Changed to primary on hover for better contrast */
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+
+
+    /* ======================== */
+    /* Sections general styling */
+    /* ======================== */
+    #services,
+    .popular-services,
+    .compliance-process,
+    .compliance-section,
+    .contact-cta {
+        padding: 100px 0;
+        position: relative;
+    }
+
+    #services {
+        background-color: white;
+    }
+
+    .popular-services {
+        background-color: var(--light);
+    }
+
+    .compliance-process {
+        background-color: var(--light);
+    }
+
+    .compliance-section {
+        background-color: white;
+    }
+
+
+    /* Updated Service Cards CSS to match the image */
+    .services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    .service-card {
+        background: white;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-top: 4px solid var(--secondary);
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-top-color: var(--accent);
+    }
+
+    .service-card h3 {
+        color: var(--primary);
+        margin: 0 0 15px 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .service-card h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--accent);
+    }
+
+    .service-card p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .service-card ul {
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+    }
+
+    .service-card li {
+        margin-bottom: 10px;
+        color: var(--text-light);
+        position: relative;
+        line-height: 1.5;
+        padding-left: 25px;
+        font-size: 0.9rem;
+    }
+
+    .service-card li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    .service-card .btn-learn-more {
+        background-color: transparent;
+        color: var(--accent) !important;
+        border: 2px solid var(--accent);
+        margin-top: auto;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-card .btn-learn-more i {
+        margin-right: 8px;
+    }
+
+    .service-card .btn-learn-more:hover {
+        background-color: var(--accent);
+        color: white !important;
+    }
+
+    /* Process section */
+    .process-step-cs {
+        background: white;
+        border-radius: 10px;
+        padding: 40px 30px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        position: relative;
+        height: 100%;
+        /* For equal height in grid */
+        border: 1px solid rgba(59, 130, 246, 0.1);
+        /* margin-bottom removed as grid-gap handles it */
+    }
+
+    .step-number {
+        position: absolute;
+        top: -20px;
+        left: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 20px;
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        z-index: 2;
+    }
+
+    .process-step-cs h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+
+    .process-step-cs p {
+        color: var(--text-light);
+        margin-bottom: 0;
+        line-height: 1.6;
+    }
+
+    /* Compliance table section */
+    .compliance-table-wrapper {
+        overflow-x: auto;
+        margin-top: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .compliance-table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+    }
+
+    .compliance-table th {
+        background-color: var(--primary);
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .compliance-table td {
+        padding: 15px;
+        border-bottom: 1px solid #e2e8f0;
+        white-space: nowrap;
+    }
+
+    .compliance-table td:first-child {
+        white-space: normal;
+    }
+
+    .compliance-table tr:nth-child(even) {
+        background-color: var(--light);
+    }
+
+    .compliance-table tr:hover {
+        background-color: rgba(59, 130, 246, 0.05);
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .badge-primary {
+        background-color: rgba(30, 58, 138, 0.1);
+        color: var(--primary);
+    }
+
+    .badge-secondary {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--secondary);
+    }
+
+    .badge-accent {
+        background-color: rgba(37, 99, 235, 0.1);
+        color: var(--accent);
+    }
+
+    /* Enhanced Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2000;
+        overflow-y: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+    }
+
+    .modal-content {
+        background-color: white;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        transform: translateY(-50px);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        position: relative;
+    }
+
+    .modal.active .modal-content {
+        transform: translateY(0);
+    }
+
+    .modal-header {
+        padding: 20px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .modal-header h3 {
+        color: white;
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .close-modal {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .close-modal:hover {
+        color: var(--highlight);
+        transform: rotate(90deg);
+    }
+
+    .modal-body {
+        padding: 25px;
+    }
+
+    .modal-body p {
+        color: var(--text);
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .modal-body ul {
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .modal-body li {
+        margin-bottom: 12px;
+        color: var(--text);
+        line-height: 1.6;
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .modal-body li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 18px;
+        height: 18px;
+        background-color: var(--accent);
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'%3E%3C/path%3E%3Cpolyline points='22 4 12 14.01 9 11.01'%3E%3C/polyline%3E%3C/svg%3E");
+        mask-repeat: no-repeat;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .modal-body li strong {
+        color: var(--primary);
+    }
+
+    .modal-footer {
+        padding: 20px;
+        border-top: 1px solid #e2e8f0;
+        text-align: right;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        text-align: center;
+    }
+
+    .contact-cta .section-title h2,
+    .contact-cta .section-title p {
+        color: white;
+    }
+
+    .contact-cta .btn-outline {
+        color: white !important;
+        border-color: white;
+    }
+
+    .contact-cta .btn-outline:hover {
+        background-color: white;
+        color: var(--primary) !important;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-col h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background-color: var(--accent);
+    }
+
+    .footer-col p {
+        color: #cbd5e1;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        line-height: 1.5;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent);
+        padding-left: 5px;
+    }
+
+    .subscribe-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-control {
+        padding: 12px 15px;
+        border-radius: 6px;
+        border: none;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        color: var(--dark);
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .form-control:focus {
+        outline: none;
+        background-color: #f0f0f0;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    }
+
+    .form-control::placeholder {
+        color: #94a3b8;
+    }
+
+    .btn-accent {
+        background-color: var(--accent);
+        color: white !important;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 273px;
+        align-self: flex-start;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn-accent:hover {
+        transform: translateY(-2px);
+        background-color: var(--primary);
+    }
+
+    /* Changed hover for subscribe */
+    .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #94a3b8;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .copyright a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+
+    .copyright b {
+        color: var(--accent);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1200px) {
+        .nav-links li {
+            margin-left: 20px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .logo-icon {
+            height: 50px;
+        }
+
+        .logo-name {
+            height: 30px;
+            margin-left: -20px;
+            margin-top: 6px;
+        }
+
+        .menu-toggle {
+            display: flex;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            z-index: 1000;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .nav-links a {
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-links li:last-child a {
+            border-bottom: none;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--light);
+        }
+
+        .nav-links a::after {
+            display: none;
+        }
+
+        .dropdown {
+            width: 100%;
+        }
+
+        .dropdown>a {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown>a i.fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.open>a i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: static;
+            width: 100%;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+            background-color: #f8f9fa;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .dropdown.open .dropdown-menu {
+            max-height: 500px;
+        }
+
+        .dropdown-menu li {
+            margin: 0 !important;
+        }
+
+        .dropdown-menu a {
+            padding-left: 35px !important;
+            color: var(--text) !important;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--highlight);
+            color: var(--primary) !important;
+        }
+
+        .nav-links .nav-account-li {
+            margin-left: 0;
+        }
+
+        .account-btn-nav {
+            width: 100%;
+            border-radius: 0;
+            background: transparent;
+            color: var(--dark);
+            justify-content: flex-start;
+            padding: 15px 20px;
+            font-size: 1rem;
+            height: auto;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-links .nav-account-li:last-child .account-btn-nav {
+            border-bottom: none;
+        }
+
+        .account-btn-nav .account-text-nav {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .account-btn-nav:hover {
+            background-color: var(--light);
+            color: var(--accent);
+            transform: none;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .cs-hero {
+            padding-top: 70px;
+        }
+
+        .services-container {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo-icon {
+            height: 40px;
+        }
+
+        .logo-name {
+            height: 24px;
+            margin-left: -15px;
+        }
+
+        .cs-hero {
+            height: auto;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .btn-group {
+            justify-content: center;
+        }
+
+        /* Center hero buttons on tablet */
+        #services,
+        .popular-services,
+        .compliance-process,
+        .compliance-section,
+        .contact-cta {
+            padding: 80px 0;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .btn,
+        .btn-hero {
+            /* Apply to all buttons for consistency on small screens */
+            padding: 12px 20px;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-group {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Stack hero buttons */
+        .section-title h2 {
+            font-size: 1.8rem;
+        }
+
+        .section-title p {
+            font-size: 1rem;
+        }
+
+        .footer-col {
+            text-align: center;
+        }
+
+        .footer-col h4::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .subscribe-form .btn-accent {
+            width: 100%;
+        }
+
+        .modal-content {
+            width: 95%;
+            margin: 15% auto;
+        }
+
+        /* Adjust modal margin for small screens */
+        .services-container {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="home.html" class="logo">
+                        <img src="Images/couns2.png" alt="CounSellore Logo" class="logo-icon">
+                        <img src="Images/name2.png" alt="CounSellore" class="logo-name">
+                    </a>
+                </div>
+
+                <div class="nav-container" id="navContainer">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="home.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#services">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services</a></li>
+                                <li><a href="ca.html"><i class="fas fa-calculator"></i> CA Services</a></li>
+                                <li><a href="cs.html"><i class="fas fa-briefcase"></i> CS Services</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="home.html?#contact-section">Contact</a></li>
+                        <li class="account-item">
+                            <a href="login.html" class="account-btn" aria-label="Account">
+                                <i class="fas fa-user-tie"></i>
+                                <span class="account-text">Account</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cs-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Corporate Compliance & Governance Solutions</h1>
+                <p>Expert company secretarial services to ensure your business meets all regulatory requirements while
+                    optimizing corporate governance.</p>
+                <div class="btn-group">
+                    <a href="#services" class="btn btn-hero"><i class="fas fa-clipboard-check"></i> Explore Services</a>
+                    <a href="#popular-services" class="btn btn-hero btn-outline"><i class="fas fa-star"></i> Popular
+                        Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Company Secretary Services</h2>
+                <p>Comprehensive corporate compliance and governance solutions for businesses of all sizes</p>
+            </div>
+
+            <div class="services-container">
+                <div class="service-card">
+                    <h3>Accounting & Bookkeeping</h3>
+                    <p>Professional accounting services to maintain accurate financial records and support
+                        decision-making.</p>
+                    <ul>
+                        <li>Monthly bookkeeping packages</li>
+                        <li>Accounting system setup</li>
+                        <li>Financial statement finalization</li>
+                        <li>MS reports</li>
+                        <li>Payroll processing</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal1')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>Company Incorporation & ROC</h3>
+                    <p>End-to-end support for business registration and statutory compliance.</p>
+                    <ul>
+                        <li>Private Limited / LLP incorporation</li>
+                        <li>ROC annual filing</li>
+                        <li>Director KYC & DIN activation</li>
+                        <li>Shareholding structure setup</li>
+                        <li>Strike-off of dormant companies</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal2')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>Startup CFO Services</h3>
+                    <p>Specialized financial leadership for emerging businesses.</p>
+                    <ul>
+                        <li>Virtual CFO package</li>
+                        <li>Financial health reporting</li>
+                        <li>Investor readiness audits</li>
+                        <li>KPI dashboard setup</li>
+                        <li>Cost optimization strategy</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal3')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>Loan & Funding Assistance</h3>
+                    <p>Expert support for securing business financing.</p>
+                    <ul>
+                        <li>CMA data preparation</li>
+                        <li>Project report for term loans</li>
+                        <li>Working capital assessment</li>
+                        <li>Bank loan documentation</li>
+                        <li>Funding strategy consultation</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal4')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>Business Valuation</h3>
+                    <p>Accurate assessment of your business worth.</p>
+                    <ul>
+                        <li>Startup/SME valuation</li>
+                        <li>ESOP valuation</li>
+                        <li>M&A valuation</li>
+                        <li>Fairness opinions</li>
+                        <li>Goodwill valuation</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal5')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>Risk & Compliance</h3>
+                    <p>Protecting your business from financial risks.</p>
+                    <ul>
+                        <li>Internal control system setup</li>
+                        <li>Risk mitigation strategy</li>
+                        <li>Compliance audits</li>
+                        <li>Fraud prevention systems</li>
+                        <li>Regulatory reporting</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal6')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-services" id="popular-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular CS Services</h2>
+                <p>Our most sought-after company secretarial services</p>
+            </div>
+
+            <div class="services-container">
+                <div class="service-card">
+                    <h3>Startup Compliance Packs</h3>
+                    <p>Comprehensive compliance solutions tailored for startups at every growth stage.</p>
+                    <ul>
+                        <li>Due Diligence for Investors</li>
+                        <li>Compliance Calendar Setup</li>
+                        <li>Founder Agreement Review</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal7')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>ESOP & Cap Table Support</h3>
+                    <p>End-to-end solutions for employee stock option plans and capitalization table management.</p>
+                    <ul>
+                        <li>ESOP Policy Drafting</li>
+                        <li>ESOP Allotment & Compliance</li>
+                        <li>Cap Table Strategy</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal8')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>Shareholders Agreement</h3>
+                    <p>Drafting and negotiation of shareholders agreements to protect all parties' interests.</p>
+                    <ul>
+                        <li>Voting Rights & Decision Making</li>
+                        <li>Exit Clauses & Drag-Along Rights</li>
+                        <li>Dispute Resolution Mechanisms</li>
+                    </ul>
+                    <button class="btn btn-learn-more" onclick="openModal('modal9')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compliance-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Compliance Process</h2>
+                <p>A structured approach to ensuring your company meets all regulatory requirements</p>
+            </div>
+            <div class="services-container">
+                <div class="process-step-cs">
+                    <div class="step-number">1</div>
+                    <h3>Compliance Assessment</h3>
+                    <p>We conduct a thorough review of your current compliance status and identify any gaps or risks.
+                    </p>
+                </div>
+                <div class="process-step-cs">
+                    <div class="step-number">2</div>
+                    <h3>Customized Plan</h3>
+                    <p>Develop a tailored compliance calendar and action plan specific to your business needs.</p>
+                </div>
+                <div class="process-step-cs">
+                    <div class="step-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>Our team handles all filings, documentation, and processes on your behalf.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compliance-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Compliance Requirements</h2>
+                <p>Essential corporate filings and their deadlines</p>
+            </div>
+            <div class="compliance-table-wrapper">
+                <table class="compliance-table">
+                    <thead>
+                        <tr>
+                            <th>Compliance</th>
+                            <th>Applicability</th>
+                            <th>Frequency</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Annual Return (MGT-7/7A)</td>
+                            <td><span class="badge badge-primary">All Companies</span></td>
+                            <td>Annual</td>
+                            <td>Within 60 days of AGM</td>
+                        </tr>
+                        <tr>
+                            <td>Financial Statements (AOC-4)</td>
+                            <td><span class="badge badge-primary">All Companies</span></td>
+                            <td>Annual</td>
+                            <td>Within 30 days of AGM</td>
+                        </tr>
+                        <tr>
+                            <td>Board Meeting Minutes</td>
+                            <td><span class="badge badge-primary">All Companies</span></td>
+                            <td>Quarterly (Min. 4 per year)</td>
+                            <td>Within 30 days of meeting</td>
+                        </tr>
+                        <tr>
+                            <td>DIR-3 KYC</td>
+                            <td><span class="badge badge-secondary">All Directors with DIN</span></td>
+                            <td>Annual</td>
+                            <td>30th September</td>
+                        </tr>
+                        <tr>
+                            <td>MSME Form I (Half Yearly Return)</td>
+                            <td><span class="badge badge-accent">Specified Companies with dues to MSMEs</span></td>
+                            <td>Half-yearly</td>
+                            <td>30th April & 31st October</td>
+                        </tr>
+                        <tr>
+                            <td>Secretarial Audit Report (MR-3)</td>
+                            <td><span class="badge badge-accent">Listed Co. / Specified Public/Pvt Co.</span></td>
+                            <td>Annual</td>
+                            <td>With Annual Return</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-cta" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ensure Your Corporate Compliance</h2>
+                <p>Let our expert CS team handle your regulatory requirements so you can focus on growing your business
+                </p>
+            </div>
+            <div style="text-align: center;">
+                <a href="home.php#contact" class="btn btn-outline" style="font-size: 18px; padding: 16px 40px;">
+                    <i class="fas fa-handshake"></i> Get Started Today
+                </a>
+                <p style="margin-top: 20px; font-size: 16px; color: rgba(255, 255, 255, 0.8);">Call our compliance
+                    helpline: <strong>+91 22 6128 5001</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Modals for service details -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Accounting & Bookkeeping</h3>
+                <button class="close-modal" onclick="closeModal('modal1')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Our comprehensive accounting services ensure your financial records are accurate, up-to-date, and
+                    compliant with all regulatory requirements. We provide end-to-end solutions tailored to your
+                    business needs.</p>
+                <ul>
+                    <li><strong>Monthly Bookkeeping Packages:</strong> Regular maintenance of your financial records
+                        including ledger management, bank reconciliations, and financial reporting.</li>
+                    <li><strong>Accounting System Setup:</strong> Implementation of accounting software (Tally,
+                        QuickBooks, etc.) customized for your business operations.</li>
+                    <li><strong>Financial Statement Finalization:</strong> Preparation of balance sheets, profit & loss
+                        statements, and cash flow statements in compliance with accounting standards.</li>
+                    <li><strong>Management Reports:</strong> Customized reports providing insights into your business
+                        performance, KPIs, and financial health.</li>
+                    <li><strong>Payroll Processing:</strong> End-to-end payroll management including salary processing,
+                        PF/ESI compliance, and tax deductions.</li>
+                    <li><strong>GST Compliance:</strong> Monthly/quarterly return filings, reconciliation, and advisory
+                        services.</li>
+                </ul>
+                <p>Our team of qualified professionals ensures your financial data is accurate and available when you
+                    need it for decision-making.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Company Incorporation & ROC</h3>
+                <button class="close-modal" onclick="closeModal('modal2')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>End-to-end support for business registration and ongoing statutory compliance with the Registrar of
+                    Companies (ROC).</p>
+                <ul>
+                    <li><strong>Private Limited Company Incorporation:</strong> Complete assistance with name approval,
+                        DIN allocation, MOA/AOA drafting, and registration.</li>
+                    <li><strong>LLP Formation:</strong> Registration of Limited Liability Partnerships including
+                        partnership agreement drafting.</li>
+                    <li><strong>ROC Annual Filings:</strong> Preparation and submission of MGT-7 (Annual Return), AOC-4
+                        (Financial Statements), and other mandatory forms.</li>
+                    <li><strong>Director KYC (DIR-3 KYC):</strong> Annual verification process for all directors to
+                        maintain active DIN status.</li>
+                    <li><strong>Shareholding Structure Setup:</strong> Assistance with share allotment, transfer, and
+                        maintenance of statutory registers.</li>
+                    <li><strong>Strike-off Services:</strong> Voluntary closure of dormant companies with all necessary
+                        ROC filings.</li>
+                </ul>
+                <p>We handle all legal formalities so you can focus on building your business.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Startup CFO Services</h3>
+                <button class="close-modal" onclick="closeModal('modal3')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Specialized financial leadership and strategic support for emerging businesses at every growth stage.
+                </p>
+                <ul>
+                    <li><strong>Virtual CFO Package:</strong> Part-time CFO services providing strategic financial
+                        guidance without the full-time cost.</li>
+                    <li><strong>Financial Health Reporting:</strong> Regular analysis of cash flow, burn rate, and key
+                        financial metrics.</li>
+                    <li><strong>Investor Readiness Audits:</strong> Preparation of financial models, pitch decks, and
+                        due diligence documentation.</li>
+                    <li><strong>KPI Dashboard Setup:</strong> Implementation of real-time performance tracking systems.
+                    </li>
+                    <li><strong>Cost Optimization Strategy:</strong> Identification of cost-saving opportunities and
+                        efficiency improvements.</li>
+                    <li><strong>Fundraising Support:</strong> Assistance with valuation, term sheet negotiation, and
+                        investor communications.</li>
+                </ul>
+                <p>Our startup CFO services provide the financial expertise young companies need to scale successfully.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal4">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Loan & Funding Assistance</h3>
+                <button class="close-modal" onclick="closeModal('modal4')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Expert support for securing business financing from banks, NBFCs, and other financial institutions.
+                </p>
+                <ul>
+                    <li><strong>CMA Data Preparation:</strong> Comprehensive Credit Monitoring Arrangement reports as
+                        required by banks.</li>
+                    <li><strong>Project Report for Term Loans:</strong> Detailed business plans and financial
+                        projections for loan applications.</li>
+                    <li><strong>Working Capital Assessment:</strong> Calculation of optimal working capital requirements
+                        and gap analysis.</li>
+                    <li><strong>Bank Loan Documentation:</strong> Assistance with application forms, KYC, and collateral
+                        documentation.</li>
+                    <li><strong>Funding Strategy Consultation:</strong> Guidance on debt structuring, interest
+                        negotiation, and lender selection.</li>
+                    <li><strong>Government Scheme Assistance:</strong> Help accessing subsidized loans and government
+                        funding programs.</li>
+                </ul>
+                <p>We streamline the loan application process and improve your chances of approval with professionally
+                    prepared documentation.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal5">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Business Valuation</h3>
+                <button class="close-modal" onclick="closeModal('modal5')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Accurate assessment of your business worth using industry-standard valuation methodologies.</p>
+                <ul>
+                    <li><strong>Startup/SME Valuation:</strong> Determining fair market value for early-stage and
+                        growing businesses.</li>
+                    <li><strong>ESOP Valuation:</strong> 409A compliant valuations for employee stock option plans.</li>
+                    <li><strong>M&A Valuation:</strong> Business worth assessment for mergers, acquisitions, and
+                        divestitures.</li>
+                    <li><strong>Fairness Opinions:</strong> Independent evaluation of proposed transactions for
+                        shareholders.</li>
+                    <li><strong>Goodwill Valuation:</strong> Intangible asset valuation for accounting and tax purposes.
+                    </li>
+                    <li><strong>Valuation for Disputes:</strong> Expert witness services for litigation and arbitration
+                        cases.</li>
+                </ul>
+                <p>Our valuations are conducted by qualified professionals using appropriate methodologies for your
+                    industry and purpose.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal6">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Risk & Compliance</h3>
+                <button class="close-modal" onclick="closeModal('modal6')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Comprehensive solutions to identify, assess, and mitigate financial and operational risks.</p>
+                <ul>
+                    <li><strong>Internal Control System Setup:</strong> Design and implementation of robust financial
+                        controls and processes.</li>
+                    <li><strong>Risk Mitigation Strategy:</strong> Identification of key risks and development of
+                        mitigation plans.</li>
+                    <li><strong>Compliance Audits:</strong> Regular reviews to ensure adherence to statutory
+                        requirements.</li>
+                    <li><strong>Fraud Prevention Systems:</strong> Implementation of safeguards against financial
+                        misappropriation.</li>
+                    <li><strong>Regulatory Reporting:</strong> Preparation and submission of mandatory reports to
+                        authorities.</li>
+                    <li><strong>Policy Development:</strong> Creation of financial policies and procedures manuals.</li>
+                </ul>
+                <p>We help protect your business from financial risks while ensuring full regulatory compliance.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal7">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Startup Compliance Packs</h3>
+                <button class="close-modal" onclick="closeModal('modal7')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Comprehensive compliance solutions tailored for startups at every growth stage, from incorporation to
+                    funding and beyond.</p>
+                <ul>
+                    <li><strong>Due Diligence for Investors:</strong> Preparing your company for investor scrutiny with
+                        organized documentation.</li>
+                    <li><strong>Compliance Calendar & Tracker Setup:</strong> Customized tracking system for all
+                        regulatory filings and deadlines.</li>
+                    <li><strong>Founder Agreement Review:</strong> Ensuring proper rights and responsibilities
+                        allocation among co-founders.</li>
+                    <li><strong>Pre-funding Secretarial Clean-up:</strong> Regularizing any past non-compliances before
+                        investor due diligence.</li>
+                    <li><strong>ESOP Framework Setup:</strong> Employee stock option plans for talent retention with
+                        proper legal structure.</li>
+                    <li><strong>Investor Documentation:</strong> Assistance with shareholder agreements, term sheets,
+                        and other funding documents.</li>
+                </ul>
+                <p>Our startup packs grow with your business, providing the right level of support at each stage of your
+                    journey.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal8">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>ESOP & Cap Table Support</h3>
+                <button class="close-modal" onclick="closeModal('modal8')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>End-to-end solutions for employee stock option plans and capitalization table management to support
+                    your growth and talent retention strategies.</p>
+                <ul>
+                    <li><strong>ESOP Policy Drafting:</strong> Customized employee stock option plans aligned with your
+                        compensation strategy.</li>
+                    <li><strong>ESOP Allotment & Compliance:</strong> Complete handling of option grants, exercises and
+                        regulatory filings.</li>
+                    <li><strong>Cap Table Management:</strong> Maintaining accurate records of securities ownership and
+                        dilution impact.</li>
+                    <li><strong>Vesting Schedule Implementation:</strong> Structuring vesting terms and conditions for
+                        employee retention.</li>
+                    <li><strong>Valuation for ESOPs:</strong> Ensuring fair market valuations compliant with tax
+                        regulations.</li>
+                    <li><strong>Exit Scenario Planning:</strong> Modeling various liquidity event outcomes for equity
+                        holders.</li>
+                </ul>
+                <p>We help create equity compensation structures that align employee and company interests while
+                    ensuring full compliance.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal9">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Shareholders Agreement</h3>
+                <button class="close-modal" onclick="closeModal('modal9')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Comprehensive drafting and negotiation of shareholders agreements to protect all parties' interests
+                    and prevent future disputes.</p>
+                <ul>
+                    <li><strong>Voting Rights & Decision Making:</strong> Structuring governance and control mechanisms
+                        for different shareholder classes.</li>
+                    <li><strong>Exit Clauses & Drag-Along/Tag-Along Rights:</strong> Planning for liquidity events and
+                        founder/investor exits.</li>
+                    <li><strong>Pre-emptive Rights & Right of First Refusal (ROFR):</strong> Managing future funding
+                        rounds and share transfers.</li>
+                    <li><strong>Dividend Policies:</strong> Structuring profit distribution and retained earnings
+                        strategy.</li>
+                    <li><strong>Dispute Resolution Mechanisms:</strong> Mediation and arbitration clauses to avoid
+                        costly litigation.</li>
+                    <li><strong>Deadlock Resolution:</strong> Procedures for resolving impasses among shareholders or
+                        directors.</li>
+                </ul>
+                <p>Our agreements balance the interests of founders, investors and other stakeholders while ensuring
+                    enforceability under Indian law.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="home.php#contact" class="btn">Get This Service</a>
+            </div>
+        </div>
+    </div>
+
+   <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>About CounSellore</h4>
+                    <p>We are a full-service legal and financial consulting firm dedicated to providing strategic
+                        solutions for businesses and individuals.</p>
+                    <p>Our multidisciplinary approach ensures comprehensive support for all your professional needs.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="home.html#contact">Contact Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Practice Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="team.html">Corporate Law</a></li>
+                        <li><a href="team.html">Taxation Services</a></li>
+                        <li><a href="team.html">Intellectual Property</a></li>
+                        <li><a href="team.html">Mergers & Acquisitions</a></li>
+                        <li><a href="team.html">Dispute Resolution</a></li>
+                        <li><a href="team.html">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscribe</h4>
+                    <p>Stay updated with our latest insights and legal updates.</p>
+                    <form class="subscribe-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© <span id="currentYear"></span> CounSellore Consultants. All Rights Reserved.</p>
+                <p>Designed & Powered by <a href="https://www.instagram.com/logic_minds_by_parii/" target="_blank"
+                        rel="noopener noreferrer"><b class="text-primary">Logic Minds by Parii</b></a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    // Update copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.length > 1 && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    let headerOffset = 70;
+                    const headerElem = document.getElementById('header');
+                    if (headerElem) {
+                        headerOffset = headerElem.offsetHeight;
+                    }
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Modal functions
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            closeModal(e.target.id);
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            const activeModal = document.querySelector('.modal.active');
+            if (activeModal) {
+                closeModal(activeModal.id);
+            }
+        }
+    });
+
+
+    // Form validation
+    const forms = document.querySelectorAll('form.subscribe-form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const emailField = this.querySelector('input[type="email"]');
+            let isValid = true;
+            let existingError = this.querySelector('.alert-form-error');
+            if (existingError) existingError.remove();
+
+            if (!emailField || !emailField.value.trim() || !emailField.checkValidity()) {
+                isValid = false;
+                if (emailField) {
+                    emailField.style.borderColor = 'red';
+                    emailField.style.boxShadow = '0 0 0 3px rgba(255, 0, 0, 0.2)';
+                }
+            } else {
+                if (emailField) {
+                    emailField.style.borderColor = '';
+                    emailField.style.boxShadow = '';
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+                const errorElement = document.createElement('div');
+                errorElement.className = 'alert-form-error';
+                errorElement.style.backgroundColor = '#fff5f5';
+                errorElement.style.color = 'red';
+                errorElement.style.borderLeft = '4px solid red';
+                errorElement.style.padding = '10px';
+                errorElement.style.marginTop = '10px';
+                errorElement.style.borderRadius = '4px';
+                errorElement.style.fontSize = '0.9em';
+                errorElement.textContent = 'Please enter a valid email address.';
+                this.insertBefore(errorElement, this.querySelector('button[type="submit"]'));
+            }
+        });
+    });
+
+    // Card animation on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .process-step-cs').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        cardObserver.observe(card);
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            const isActive = navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isActive.toString());
+            if (isActive) {
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when mobile menu is open
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // Mobile Dropdown Toggle
+    const dropdowns = document.querySelectorAll('.nav-links .dropdown');
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        if (link && !link.dataset.dropdownListenerAdded) {
+            link.dataset.dropdownListenerAdded = "true";
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992 && dropdown.querySelector('.dropdown-menu')) {
+                    e.preventDefault();
+
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains(
+                                'open')) {
+                            otherDropdown.classList.remove('open');
+                            const otherMenu = otherDropdown.querySelector('.dropdown-menu');
+                            if (otherMenu) otherMenu.style.maxHeight = null;
+                        }
+                    });
+
+                    dropdown.classList.toggle('open');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    if (menu) {
+                        if (dropdown.classList.contains('open')) {
+                            menu.style.maxHeight = menu.scrollHeight + "px";
+                        } else {
+                            menu.style.maxHeight = null;
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+    // Close mobile menu if a link (not a dropdown toggle) is clicked
+    if (navLinks) {
+        navLinks.querySelectorAll('a').forEach(link => {
+            if (!link.dataset.closeMenuListenerAdded) {
+                link.dataset.closeMenuListenerAdded = "true";
+                link.addEventListener('click', (e) => {
+                    const parentLi = link.closest('li');
+                    const isDropdownMainLink = parentLi && parentLi.classList.contains('dropdown') &&
+                        link === parentLi.children[0] && window.innerWidth <= 992 && parentLi
+                        .querySelector('.dropdown-menu');
+
+                    if (navLinks.classList.contains('active')) {
+                        if (!isDropdownMainLink) {
+                            navLinks.classList.remove('active');
+                            if (mobileMenuToggle) {
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                            }
+                            document.body.style.overflow = '';
+
+                            dropdowns.forEach(dd => {
+                                if (dd.classList.contains('open')) {
+                                    dd.classList.remove('open');
+                                    const menu = dd.querySelector('.dropdown-menu');
+                                    if (menu) menu.style.maxHeight = null;
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

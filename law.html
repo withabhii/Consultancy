@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Advisory Services | CounSellore Consultants</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Professional Black and White Theme */
+        :root {
+            --black: #000000;
+            --dark-gray: #222222;
+            --medium-gray: #444444;
+            --light-gray: #777777;
+            --lighter-gray: #cccccc;
+            --lightest-gray: #f5f5f5;
+            --white: #ffffff;
+
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #10b981;
+            --dark: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+
+            --header-default-height: 80px;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--medium-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+            padding-top: var(--header-default-height);
+            /* Account for fixed header */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--black);
+            font-weight: 700;
+            margin-top: 0;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--black);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--light-gray);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Header styles */
+        #header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            min-height: 80px;
+            margin-top: -85px;
+        }
+
+        /* Logo Styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-name {
+            height: 40px;
+            width: auto;
+            transition: all 0.3s ease;
+            margin-left: -30px;
+            margin-top: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+            margin-top: 7px;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--black);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown>a i.fa-chevron-down {
+            margin-left: 5px;
+            font-size: 0.8em;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 220px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            border: 1px solid #e2e8f0;
+            transform: translateY(10px);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px !important;
+            display: flex;
+            align-items: center;
+            color: var(--black) !important;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(0, 0, 0, 0.03);
+            color: var(--black) !important;
+        }
+
+        .dropdown-menu i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Account Button in Navbar */
+        .nav-links .nav-account-li {
+            margin-left: 25px;
+        }
+
+        .account-btn-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+            color: black;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .account-btn-nav .account-text-nav {
+            display: none;
+        }
+
+        .account-btn-nav:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            color: black;
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .legal-hero {
+            background: linear-gradient(105deg, rgba(0, 0, 0, 0.9) 0%, rgba(30, 30, 30, 0.85) 100%), url('Images/law.avif') no-repeat center center;
+            background-size: cover;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styles */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background-color: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--black);
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        .btn-accent {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-link {
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            padding: 0;
+            text-decoration: underline;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-link:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: none;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Practice Areas Grid */
+        .practice-areas {
+            background-color: var(--lightest-gray);
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .practice-card {
+            background: var(--white);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid var(--lighter-gray);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .practice-icon {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .practice-content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .practice-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .practice-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .practice-content li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .practice-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--black);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .practice-content .btn-link {
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* Popular Services Section */
+        .popular-services {
+            background-color: var(--white);
+        }
+
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .popular-card {
+            background: var(--lightest-gray);
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--lighter-gray);
+        }
+
+        .popular-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .popular-card h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .popular-card h3 i {
+            margin-right: 12px;
+            color: var(--black);
+        }
+
+        .popular-card p {
+            margin-bottom: 20px;
+            color: var(--light-gray);
+        }
+
+        /* Process Steps */
+        body {
+            counter-reset: step-counter;
+        }
+
+        .process-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: 40px;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 70px;
+            height: 70px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            border: 3px solid var(--lighter-gray);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--lighter-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: var(--black);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-gray);
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--black);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+        }
+
+        .modal-body ul {
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--lighter-gray);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            padding: 100px 0;
+            background: linear-gradient(105deg, rgba(0, 0, 0, 0.95) 0%, rgba(37, 38, 41, 0.16) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-cta .section-title h2,
+        .contact-cta .section-title p {
+            color: white;
+        }
+
+        .contact-cta .section-title h2:after {
+            background-color: white;
+        }
+
+        .contact-cta .btn-outline {
+            color: white !important;
+            border-color: white;
+        }
+
+        .contact-cta .btn-outline:hover {
+            background-color: white;
+            color: var(--primary) !important;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--white);
+        }
+
+        .footer-col p {
+            color: var(--lighter-gray);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--lighter-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--dark-gray);
+            width: 100%;
+            background-color: var(--dark-gray);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--medium-gray);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .form-control::placeholder {
+            color: var(--light-gray);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--dark-gray);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .copyright a b.text-primary {
+            color: var(--primary) !important;
+        }
+
+        /* Accessibility Styles */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .focus-visible:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .process-step {
+                padding-left: 80px;
+            }
+
+            .process-step::before {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .legal-hero {
+                min-height: 500px;
+                padding: 60px 0;
+            }
+
+            .practice-grid,
+            .popular-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
+            .nav-links li {
+                margin-left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-icon {
+                height: 45px;
+            }
+
+            .logo-name {
+                height: 30px;
+                margin-left: -20px;
+                margin-top: 3px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--header-default-height);
+                /* Match header height */
+                left: 0;
+                width: 100%;
+                height: calc(100vh - var(--header-default-height));
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 999;
+                overflow-y: auto;
+                justify-content: flex-start;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 15px 0 !important;
+                display: block;
+                width: 100%;
+                font-size: 1.1rem;
+                border-bottom: 1px solid var(--lightest-gray);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            /* Mobile Dropdown (Accordion Style) */
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border: none;
+                border-top: 1px solid var(--lighter-gray);
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+                padding: 0 0 0 20px;
+                background-color: var(--lightest-gray);
+                margin-top: 0;
+            }
+
+            /* CORRECTED: Use .active class for mobile dropdown */
+            .dropdown.active .dropdown-menu {
+                max-height: 500px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .dropdown-menu a {
+                padding: 12px 0 !important;
+                font-size: 1rem;
+                border-bottom: none;
+            }
+
+            .nav-links .nav-account-li {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .account-btn-nav {
+                width: 100%;
+                height: auto;
+                padding: 15px 0;
+                border-radius: 0;
+                background: transparent;
+                justify-content: flex-start;
+                color: var(--dark);
+                font-size: 1.1rem;
+            }
+
+            .account-btn-nav:hover {
+                background: transparent;
+                transform: none;
+            }
+
+            .account-text-nav {
+                display: inline !important;
+                margin-left: 8px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .process-step {
+                padding-left: 70px;
+            }
+
+            .process-step::before {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-icon {
+                height: 40px;
+            }
+
+            .logo-name {
+                height: 25px;
+                margin-left: -18px;
+                margin-top: 2px;
+            }
+
+            .legal-hero {
+                min-height: auto;
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .practice-grid,
+            .popular-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                padding-left: 60px;
+            }
+
+            .process-step::before {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .btn,
+            .btn-sm {
+                padding: 14px 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .logo-icon {
+                height: 35px;
+            }
+
+            .logo-name {
+                height: 22px;
+                margin-left: -15px;
+            }
+
+            .process-step {
+                padding-left: 50px;
+            }
+
+            .process-step::before {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="home.html" class="logo">
+                        <img src="Images/couns2.png" alt="CounSellore Logo" class="logo-icon">
+                        <img src="Images/name2.png" alt="CounSellore" class="logo-name">
+                    </a>
+                </div>
+
+                <div class="nav-container" id="navContainer">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="home.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#services">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services</a></li>
+                                <li><a href="ca.html"><i class="fas fa-calculator"></i> CA Services</a></li>
+                                <li><a href="cs.html"><i class="fas fa-briefcase"></i> CS Services</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="home.html?#contact-section">Contact</a></li>
+                        <li class="account-item">
+                            <a href="login.html" class="account-btn" aria-label="Account">
+                                <i class="fas fa-user-tie"></i>
+                                <span class="account-text">Account</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="legal-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Strategic Legal Advisory Services</h1>
+                <p>Expert legal counsel to protect your interests and navigate complex regulatory environments with
+                    confidence and precision.</p>
+                <div class="btn-group">
+                    <a href="#practice-areas" class="btn focus-visible"><i class="fas fa-gavel"></i> Explore All
+                        Services</a>
+                    <a href="#popular-services" class="btn btn-outline focus-visible"><i class="fas fa-star"></i>
+                        Popular Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas Section -->
+    <section id="practice-areas" class="practice-areas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Legal Practice Areas</h2>
+                <p>Specialized legal services tailored to meet your specific business and personal requirements</p>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <div class="practice-icon"><i class="fas fa-home"></i></div>
+                    <div class="practice-content">
+                        <h3>Civil & Property Law</h3>
+                        <p>Comprehensive legal solutions for property and civil matters.</p>
+                        <ul>
+                            <li>Property title due diligence</li>
+                            <li>Real estate transaction support</li>
+                            <li>Land disputes resolution</li>
+                            <li>Property registration & mutation</li>
+                            <li>Lease/rental agreement drafting</li>
+                        </ul>
+                        <button class="btn-link learn-more-btn focus-visible" data-modal="civil-property">Learn
+                            More</button>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon"><i class="fas fa-hammer"></i></div>
+                    <div class="practice-content">
+                        <h3>Criminal Law (Advisory Only)</h3>
+                        <p>Pre-litigation guidance and bail support services.</p>
+                        <ul>
+                            <li>Legal opinion on FIRs or charges</li>
+                            <li>Bail applications (anticipatory & regular)</li>
+                            <li>White-collar crime advisory</li>
+                            <li>Criminal defense strategy</li>
+                            <li>Case evaluation services</li>
+                        </ul>
+                        <button class="btn-link learn-more-btn focus-visible" data-modal="criminal-law">Learn
+                            More</button>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon"><i class="fas fa-heart"></i></div>
+                    <div class="practice-content">
+                        <h3>Family & Matrimonial Law</h3>
+                        <p>Legal support for family and matrimonial matters.</p>
+                        <ul>
+                            <li>Marriage registration & documentation</li>
+                            <li>Divorce & separation advisory</li>
+                            <li>Child custody & guardianship</li>
+                            <li>Domestic violence support guidance</li>
+                            <li>Maintenance/Alimony legal guidance</li>
+                        </ul>
+                        <button class="btn-link learn-more-btn focus-visible" data-modal="family-law">Learn
+                            More</button>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="practice-content">
+                        <h3>Intellectual Property Rights</h3>
+                        <p>Protection and management of intellectual property assets.</p>
+                        <ul>
+                            <li>Trademark registration</li>
+                            <li>Copyright filing & disputes</li>
+                            <li>Patent filing coordination</li>
+                            <li>IP licensing & transfer</li>
+                            <li>IP litigation consultation</li>
+                        </ul>
+                        <button class="btn-link learn-more-btn focus-visible" data-modal="ipr-law">Learn More</button>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="practice-content">
+                        <h3>Consumer Protection Law</h3>
+                        <p>Legal support for consumer rights and disputes.</p>
+                        <ul>
+                            <li>Consumer complaint drafting</li>
+                            <li>Representation before consumer forums</li>
+                            <li>E-commerce dispute support</li>
+                            <li>Product/service liability advisory</li>
+                            <li>Consumer rights education</li>
+                        </ul>
+                        <button class="btn-link learn-more-btn focus-visible" data-modal="consumer-law">Learn
+                            More</button>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="practice-content">
+                        <h3>Labour & Employment Law</h3>
+                        <p>Workplace legal solutions for employment relationships.</p>
+                        <ul>
+                            <li>Drafting employment contracts & NDAs</li>
+                            <li>Workplace harassment (POSH) policy setup</li>
+                            <li>Termination & severance legalities</li>
+                            <li>Labour law compliance advisory</li>
+                            <li>Employee rights protection</li>
+                        </ul>
+                        <button class="btn-link learn-more-btn focus-visible" data-modal="employment-law">Learn
+                            More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services Section -->
+    <section id="popular-services" class="popular-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Legal Services</h2>
+                <p>Our most sought-after legal services that help clients navigate complex legal landscapes</p>
+            </div>
+            <div class="popular-grid">
+                <div class="popular-card">
+                    <h3><i class="fas fa-file-contract"></i> Contract Drafting</h3>
+                    <p>Professional drafting and review of contracts to protect your interests in all business
+                        agreements.</p>
+                    <button class="btn btn-sm learn-more-btn focus-visible" data-modal="contract-drafting">Learn
+                        More</button>
+                </div>
+                <div class="popular-card">
+                    <h3><i class="fas fa-trademark"></i> Trademark Registration</h3>
+                    <p>Secure your brand identity with comprehensive trademark registration and protection services.</p>
+                    <button class="btn btn-sm learn-more-btn focus-visible" data-modal="trademark">Learn More</button>
+                </div>
+                <div class="popular-card">
+                    <h3><i class="fas fa-user-tie"></i> Employment Agreements</h3>
+                    <p>Customized employment contracts that protect both employer and employee interests.</p>
+                    <button class="btn btn-sm learn-more-btn focus-visible" data-modal="employment-agreements">Learn
+                        More</button>
+                </div>
+                <div class="popular-card">
+                    <h3><i class="fas fa-money-bill-wave"></i> Debt Recovery</h3>
+                    <p>Effective legal strategies for recovering debts and managing loan defaults.</p>
+                    <button class="btn btn-sm learn-more-btn focus-visible" data-modal="debt-recovery">Learn
+                        More</button>
+                </div>
+                <div class="popular-card">
+                    <h3><i class="fas fa-shield-alt"></i> Data Protection</h3>
+                    <p>GDPR and other data privacy compliance services for businesses and individuals.</p>
+                    <button class="btn btn-sm learn-more-btn focus-visible" data-modal="data-protection">Learn
+                        More</button>
+                </div>
+                <div class="popular-card">
+                    <h3><i class="fas fa-handshake"></i> Alternative Dispute Resolution</h3>
+                    <p>Mediation and arbitration services to resolve conflicts without litigation.</p>
+                    <button class="btn btn-sm learn-more-btn focus-visible" data-modal="dispute-resolution">Learn
+                        More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="our-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Legal Process</h2>
+                <p>Simple. Secure. Confidential.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Submit Your Legal Query</h3>
+                    <p>Briefly describe your issue in a secure form.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Get Matched with the Right Legal Expert</h3>
+                    <p>We'll connect you to a verified lawyer best suited for your matter.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Schedule Your Consultation</h3>
+                    <p>Flexible 30-60 minute sessions tailored to your needs.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Make Secure Payment</h3>
+                    <p>Pay only for what you need — no hidden fees.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Receive Actionable Legal Guidance</h3>
+                    <p>Need document drafting or review? Our experts handle it seamlessly.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Ongoing Support (if required)</h3>
+                    <p>Opt for extended packages or connect for follow-ups easily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Need Expert Legal Advice?</h2>
+                <p>Our legal team is ready to assist. Contact us for an initial consultation.</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="home.php#contact" class="btn btn-outline" style="font-size: 18px; padding: 16px 40px;">
+                    <i class="fas fa-phone-alt"></i> Schedule a Consultation
+                </a>
+                <p style="margin-top: 20px; font-size: 16px; color: rgba(255, 255, 255, 0.8);">Or email us directly:
+                    <strong>legal@counsellore.com</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>About CounSellore</h4>
+                    <p>We are a full-service legal and financial consulting firm dedicated to providing strategic
+                        solutions for businesses and individuals.</p>
+                    <p>Our multidisciplinary approach ensures comprehensive support for all your professional needs.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="home.html#contact">Contact Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Practice Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="team.html">Corporate Law</a></li>
+                        <li><a href="team.html">Taxation Services</a></li>
+                        <li><a href="team.html">Intellectual Property</a></li>
+                        <li><a href="team.html">Mergers & Acquisitions</a></li>
+                        <li><a href="team.html">Dispute Resolution</a></li>
+                        <li><a href="team.html">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscribe</h4>
+                    <p>Stay updated with our latest insights and legal updates.</p>
+                    <form class="subscribe-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© <span id="currentYear"></span> CounSellore Consultants. All Rights Reserved.</p>
+                <p>Designed & Powered by <a href="https://www.instagram.com/logic_minds_by_parii/" target="_blank"
+                        rel="noopener noreferrer"><b class="text-primary">Logic Minds by Parii</b></a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="civil-property-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-home"></i> Civil & Property Law</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Our civil and property law services provide comprehensive legal solutions for all matters related to
+                    real estate, land disputes, and civil litigation.</p>
+                <h4>Key Services:</h4>
+                <ul>
+                    <li>Property title verification and due diligence</li>
+                    <li>Legal support for real estate transactions</li>
+                    <li>Resolution of land and boundary disputes</li>
+                    <li>Assistance with property registration and mutation</li>
+                    <li>Drafting and review of lease/rental agreements</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="criminal-law-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-handcuffs"></i> Criminal Law Advisory</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Pre-litigation advisory services for criminal matters, providing guidance and strategic planning for
+                    clients facing legal challenges.</p>
+                <h4>Key Services:</h4>
+                <ul>
+                    <li>Legal opinion on FIRs and criminal charges</li>
+                    <li>Bail application preparation and strategy</li>
+                    <li>White-collar crime advisory services</li>
+                    <li>Case evaluation and defense strategy</li>
+                </ul>
+                <p>Note: We provide advisory services only and do not represent clients in criminal court proceedings.
+                </p>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="family-law-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-heart"></i> Family & Matrimonial Law</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Compassionate legal support for family matters, helping clients navigate sensitive personal
+                    situations with professionalism and care.</p>
+                <h4>Key Services:</h4>
+                <ul>
+                    <li>Marriage registration and documentation</li>
+                    <li>Divorce and separation advisory services</li>
+                    <li>Child custody and guardianship matters</li>
+                    <li>Domestic violence protection guidance</li>
+                    <li>Maintenance and alimony legal support</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="ipr-law-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-lightbulb"></i> Intellectual Property Rights</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Comprehensive IP protection services to safeguard your innovations, brands, and creative works.</p>
+                <h4>Key Services:</h4>
+                <ul>
+                    <li>Trademark search, registration, and protection</li>
+                    <li>Copyright filing and dispute resolution</li>
+                    <li>Patent filing coordination</li>
+                    <li>IP licensing agreements and transfers</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="consumer-law-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Consumer Protection Law</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Legal support for consumer rights protection and dispute resolution under consumer protection laws.
+                </p>
+                <h4>Key Services:</h4>
+                <ul>
+                    <li>Consumer complaint drafting and filing</li>
+                    <li>Representation before consumer forums</li>
+                    <li>E-commerce dispute resolution</li>
+                    <li>Product liability and service deficiency cases</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="employment-law-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-briefcase"></i> Labour & Employment Law</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Comprehensive legal solutions for workplace matters, serving both employers and employees.</p>
+                <h4>Key Services:</h4>
+                <ul>
+                    <li>Drafting employment contracts and NDAs</li>
+                    <li>POSH (Prevention of Sexual Harassment) compliance</li>
+                    <li>Termination and severance legal guidance</li>
+                    <li>Labour law compliance advisory</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="contract-drafting-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-contract"></i> Contract Drafting</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Professional contract drafting and review services to protect your interests in all business
+                    agreements.</p>
+                <h4>Service Details:</h4>
+                <ul>
+                    <li>Custom contract drafting tailored to your specific needs</li>
+                    <li>Comprehensive contract review and risk analysis</li>
+                    <li>Negotiation support and strategy development</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="trademark-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-trademark"></i> Trademark Registration</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>End-to-end trademark services to protect your brand identity and intellectual property rights.</p>
+                <h4>Service Details:</h4>
+                <ul>
+                    <li>Trademark search and clearance analysis</li>
+                    <li>Application preparation and filing</li>
+                    <li>Response to trademark office actions</li>
+                    <li>Trademark monitoring and enforcement</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="employment-agreements-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-tie"></i> Employment Agreements</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Customized employment contracts and workplace agreements that protect both employer and employee
+                    interests.</p>
+                <h4>Service Details:</h4>
+                <ul>
+                    <li>Drafting of employment contracts for all levels</li>
+                    <li>Non-compete and confidentiality agreements</li>
+                    <li>Termination and severance agreements</li>
+                    <li>Employee handbooks and policy manuals</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="debt-recovery-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-money-bill-wave"></i> Debt Recovery Services</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Effective legal strategies for recovering debts and managing loan defaults through proper channels.
+                </p>
+                <h4>Service Details:</h4>
+                <ul>
+                    <li>Legal notices for debt recovery</li>
+                    <li>SARFAESI Act advisory and proceedings</li>
+                    <li>Debt recovery tribunal (DRT) cases</li>
+                    <li>Negotiation and settlement strategies</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="data-protection-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shield-alt"></i> Data Protection Services</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Comprehensive data privacy and protection services to safeguard your business and customer
+                    information.</p>
+                <h4>Service Details:</h4>
+                <ul>
+                    <li>GDPR and data protection compliance advisory</li>
+                    <li>Data protection policy development</li>
+                    <li>Data breach response planning</li>
+                    <li>Website privacy policy drafting</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+    <div class="modal" id="dispute-resolution-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-handshake"></i> Alternative Dispute Resolution</h3><button
+                    class="close-modal focus-visible">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Mediation and arbitration services to resolve conflicts efficiently without lengthy court
+                    proceedings.</p>
+                <h4>Service Details:</h4>
+                <ul>
+                    <li>Arbitration clause drafting for contracts</li>
+                    <li>Mediation advisory and facilitation</li>
+                    <li>Pre-litigation settlement strategy</li>
+                    <li>Online dispute resolution options</li>
+                </ul>
+            </div>
+            <div class="modal-footer"><button class="btn btn-sm close-modal focus-visible">Close</button></div>
+        </div>
+    </div>
+
+    <!-- REVISED JAVASCRIPT BLOCK -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Globals ---
+            const header = document.getElementById('header');
+            const mobileMenuButton = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('navLinks');
+            const body = document.body;
+            const headerDefaultHeight = 80; // Should match your CSS variable
+
+            // --- Functions ---
+            const setYear = () => {
+                const yearSpan = document.getElementById('currentYear');
+                if (yearSpan) {
+                    yearSpan.textContent = new Date().getFullYear();
+                }
+            };
+
+            const updateBodyPadding = () => {
+                const currentHeaderHeight = header ? header.offsetHeight : headerDefaultHeight;
+                body.style.paddingTop = currentHeaderHeight + 'px';
+            };
+
+            const closeMobileMenu = () => {
+                if (mobileMenuButton && navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuButton.classList.remove('active');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    body.style.overflow = '';
+                }
+            };
+
+            // --- Initial Setup ---
+            setYear();
+            if (header) {
+                updateBodyPadding();
+                window.addEventListener('resize', updateBodyPadding);
+            }
+
+            // --- Event Listeners ---
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (header) {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                }
+            });
+
+            // Mobile Menu Toggle
+            if (mobileMenuButton && navLinks) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isActive = navLinks.classList.toggle('active');
+                    mobileMenuButton.classList.toggle('active');
+                    mobileMenuButton.setAttribute('aria-expanded', isActive.toString());
+                    body.style.overflow = isActive ? 'hidden' : '';
+                });
+            }
+
+            // Mobile Dropdown Toggle (Accordion Style)
+            const dropdowns = document.querySelectorAll('.nav-links .dropdown');
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', function (e) {
+                        // This logic should only apply in mobile view
+                        if (window.innerWidth <= 768 && dropdown.querySelector('.dropdown-menu')) {
+                            e
+                                .preventDefault(); // Prevent navigation for the top-level dropdown link
+
+                            // Close other open dropdowns to behave like a true accordion
+                            dropdowns.forEach(otherDropdown => {
+                                if (otherDropdown !== dropdown) {
+                                    otherDropdown.classList.remove('active');
+                                    const otherMenu = otherDropdown.querySelector(
+                                        '.dropdown-menu');
+                                    if (otherMenu) otherMenu.style.maxHeight = null;
+                                }
+                            });
+
+                            // Toggle the clicked dropdown
+                            dropdown.classList.toggle('active'); // Use 'active' class to match CSS
+                            const menu = dropdown.querySelector('.dropdown-menu');
+                            if (menu) {
+                                if (dropdown.classList.contains('active')) {
+                                    menu.style.maxHeight = menu.scrollHeight + "px";
+                                } else {
+                                    menu.style.maxHeight = null;
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Close mobile menu if any link inside it is clicked
+            if (navLinks) {
+                navLinks.addEventListener('click', (e) => {
+                    // We only want to close the menu if a real link is clicked,
+                    // not the parent of a dropdown on mobile.
+                    const targetLink = e.target.closest('a');
+                    if (!targetLink) return;
+
+                    const parentLi = targetLink.closest('li');
+                    const isDropdownToggle = parentLi && parentLi.classList.contains('dropdown');
+
+                    // If it's a dropdown toggle on mobile, the dropdown handler already prevents default.
+                    // For any other link, we should close the menu.
+                    if (window.innerWidth <= 768 && isDropdownToggle) {
+                        return; // Let the dropdown handler manage this click
+                    }
+
+                    closeMobileMenu();
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.length > 1) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            e.preventDefault();
+                            const headerOffset = header ? header.offsetHeight : headerDefaultHeight;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset -
+                                headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                            // The nav link click handler above will close the menu
+                        }
+                    }
+                });
+            });
+
+            // Modal functionality
+            const modalTriggers = document.querySelectorAll('.learn-more-btn');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close-modal');
+
+            const openModal = (modal) => {
+                if (modal) {
+                    modal.classList.add('active');
+                    body.style.overflow = 'hidden';
+                }
+            };
+
+            const closeModal = (modal) => {
+                if (modal) {
+                    modal.classList.remove('active');
+                    // Only restore body scroll if no other modals are open
+                    if (document.querySelectorAll('.modal.active').length === 0) {
+                        body.style.overflow = '';
+                    }
+                }
+            };
+
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function () {
+                    const modalId = this.getAttribute('data-modal') + '-modal';
+                    const modal = document.getElementById(modalId);
+                    openModal(modal);
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    closeModal(this.closest('.modal'));
+                });
+            });
+
+            modals.forEach(modal => {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        closeModal(this);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.active').forEach(closeModal);
+                }
+            });
+
+            // Subscribe form
+            const subscribeForm = document.getElementById('subscribeForm');
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('subscribeEmail');
+                    alert(`Thank you for subscribing with ${emailInput.value}!`);
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
