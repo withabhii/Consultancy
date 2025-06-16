@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Compliance Services | CounSellore Consultants</title>
-     <meta name="description"
+    <meta name="description"
         content="Professional consultancy services tailored for Legal, CA, and CS firms. We provide expert guidance in compliance, business setup, regulatory support, 
         and strategic advisory—empowering firms to grow efficiently and stay compliant.">
     <link rel="icon" type="image/x-icon" href="Images\couns.jpg">
@@ -1168,40 +1168,37 @@
 </head>
 
 <body>
-      <header id="header">
+    <header id="header">
         <div class="container">
             <nav>
-                <div class="logo-container">
-                    <a href="index.html" class="logo">
-                        <img src="Images/couns2.png" alt="CounSellore Logo" class="logo-icon">
-                        <img src="Images/name2.png" alt="CounSellore" class="logo-name">
-                    </a>
-                </div>
+                <!-- Corrected logo structure: <a> wraps both images -->
+                <a href="index.html" class="logo">
+                    <img src="Images/couns2.png" alt="CounSellore Logo" class="logo-icon">
+                    <img src="Images/name2.png" alt="CounSellore" class="logo-name">
+                </a>
 
-                <div class="nav-container" id="navContainer">
-                    <ul class="nav-links" id="navLinks">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#services">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services</a></li>
-                                <li><a href="ca.html"><i class="fas fa-calculator"></i> CA Services</a></li>
-                                <li><a href="cs.html"><i class="fas fa-briefcase"></i> CS Services</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="index.html?#contact-section">Contact</a></li>
-                        <li class="account-item">
-                            <a href="login.html" class="account-btn" aria-label="Account">
-                                <i class="fas fa-user-tie"></i>
-                                <!-- <span class="account-text">Account</span> -->
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu" aria-expanded="false">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services</a></li>
+                            <li><a href="ca.html"><i class="fas fa-calculator"></i> CA Services</a></li>
+                            <li><a href="cs.html"><i class="fas fa-briefcase"></i> CS Services</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html?#contact-section">Contact</a></li>
+                    <li class="nav-account-li">
+                        <a href="login.html" class="account-btn-nav">
+                            <i class="fas fa-user-tie"></i>
+                            <span class="account-text-nav"></span>
+                        </a>
+                    </li>
+                </ul>
+                <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="navLinks">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1471,11 +1468,12 @@
                 </p>
             </div>
             <div style="text-align: center;">
-                <a href="home.php#contact" class="btn btn-outline" style="font-size: 18px; padding: 16px 40px;">
+                <a href="team.html" class="btn btn-outline" style="font-size: 18px; padding: 16px 40px;">
                     <i class="fas fa-handshake"></i> Get Started Today
                 </a>
-                <p style="margin-top: 20px; font-size: 16px; color: rgba(255, 255, 255, 0.8);">Call our compliance
-                    helpline: <strong>+91 22 6128 5001</strong></p>
+                 <p style="margin-top: 20px; font-size: 16px; color: rgba(255, 255, 255, 0.8);">Or email us directly:
+                    <strong>counsellore25@gmail.com</strong>
+                </p>
             </div>
         </div>
     </section>
@@ -1485,7 +1483,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Accounting & Bookkeeping</h3>
-                <button class="close-modal" onclick="closeModal('modal1')">×</button>
+                <button class="close-modal" onclick="closeModal('modal1')">x</button>
             </div>
             <div class="modal-body">
                 <p>Our comprehensive accounting services ensure your financial records are accurate, up-to-date, and
@@ -1509,7 +1507,7 @@
                     need it for decision-making.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1518,7 +1516,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Company Incorporation & ROC</h3>
-                <button class="close-modal" onclick="closeModal('modal2')">×</button>
+                <button class="close-modal" onclick="closeModal('modal2')">x</button>
             </div>
             <div class="modal-body">
                 <p>End-to-end support for business registration and ongoing statutory compliance with the Registrar of
@@ -1540,7 +1538,7 @@
                 <p>We handle all legal formalities so you can focus on building your business.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1549,7 +1547,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Startup CFO Services</h3>
-                <button class="close-modal" onclick="closeModal('modal3')">×</button>
+                <button class="close-modal" onclick="closeModal('modal3')">x</button>
             </div>
             <div class="modal-body">
                 <p>Specialized financial leadership and strategic support for emerging businesses at every growth stage.
@@ -1572,7 +1570,7 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1581,7 +1579,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Loan & Funding Assistance</h3>
-                <button class="close-modal" onclick="closeModal('modal4')">×</button>
+                <button class="close-modal" onclick="closeModal('modal4')">x</button>
             </div>
             <div class="modal-body">
                 <p>Expert support for securing business financing from banks, NBFCs, and other financial institutions.
@@ -1604,7 +1602,7 @@
                     prepared documentation.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1613,7 +1611,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Business Valuation</h3>
-                <button class="close-modal" onclick="closeModal('modal5')">×</button>
+                <button class="close-modal" onclick="closeModal('modal5')">x</button>
             </div>
             <div class="modal-body">
                 <p>Accurate assessment of your business worth using industry-standard valuation methodologies.</p>
@@ -1634,7 +1632,7 @@
                     industry and purpose.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1643,7 +1641,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Risk & Compliance</h3>
-                <button class="close-modal" onclick="closeModal('modal6')">×</button>
+                <button class="close-modal" onclick="closeModal('modal6')">x</button>
             </div>
             <div class="modal-body">
                 <p>Comprehensive solutions to identify, assess, and mitigate financial and operational risks.</p>
@@ -1663,7 +1661,7 @@
                 <p>We help protect your business from financial risks while ensuring full regulatory compliance.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1672,7 +1670,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Startup Compliance Packs</h3>
-                <button class="close-modal" onclick="closeModal('modal7')">×</button>
+                <button class="close-modal" onclick="closeModal('modal7')">x</button>
             </div>
             <div class="modal-body">
                 <p>Comprehensive compliance solutions tailored for startups at every growth stage, from incorporation to
@@ -1695,7 +1693,7 @@
                     journey.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1704,7 +1702,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>ESOP & Cap Table Support</h3>
-                <button class="close-modal" onclick="closeModal('modal8')">×</button>
+                <button class="close-modal" onclick="closeModal('modal8')">x</button>
             </div>
             <div class="modal-body">
                 <p>End-to-end solutions for employee stock option plans and capitalization table management to support
@@ -1727,7 +1725,7 @@
                     ensuring full compliance.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
@@ -1736,7 +1734,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Shareholders Agreement</h3>
-                <button class="close-modal" onclick="closeModal('modal9')">×</button>
+                <button class="close-modal" onclick="closeModal('modal9')">x</button>
             </div>
             <div class="modal-body">
                 <p>Comprehensive drafting and negotiation of shareholders agreements to protect all parties' interests
@@ -1759,11 +1757,12 @@
                     enforceability under Indian law.</p>
             </div>
             <div class="modal-footer">
-                <a href="home.php#contact" class="btn">Get This Service</a>
+                <a href="team.html" class="btn">Get This Service</a>
             </div>
         </div>
     </div>
 
+     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -1778,7 +1777,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="team.html">Our Team</a></li>
-                        <li><a href="home.html#contact">Contact Us</a></li>
+                        <li><a href="index.html?#contact-section">Contact Us</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
@@ -1796,22 +1795,23 @@
                 </div>
                 <div class="footer-col">
                     <h4>Subscribe</h4>
-                    <p>Stay updated with our latest insights and legal updates.</p>
+                    <p>Stay updated with our latest insights and compliance updates.</p>
                     <form class="subscribe-form">
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Your email address" required>
                         </div>
-                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                        <button type="submit" class="btn-accent focus-visible form-control">Subscribe</button>
                     </form>
                 </div>
             </div>
             <div class="copyright">
                 <p>© <span id="currentYear"></span> CounSellore Consultants. All Rights Reserved.</p>
                 <p>Designed & Powered by <a href="https://www.instagram.com/logic_minds_by_parii/" target="_blank"
-                        rel="noopener noreferrer"><b class="text-primary">Logic Minds by Parii</b></a></p>
+                        rel="noopener noreferrer"><b style="color: var(--accent);">Logic Minds by Parii</b></a></p>
             </div>
         </div>
     </footer>
+
     <script>
     // Update copyright year
     document.getElementById('currentYear').textContent = new Date().getFullYear();
