@@ -15,6 +15,8 @@
         --primary-hover: #2c65b0;
         --secondary-color: #00d2ff;
         --secondary-hover: #00b8e0;
+        --professional-color: #8e44ad;
+        --professional-hover: #7d3c98;
         --dark-color: #1a2a3a;
         --text-color: #2d3748;
         --text-color-light: #ffffff;
@@ -264,6 +266,18 @@
         box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
     }
 
+    .btn-professional {
+        background: linear-gradient(to right, var(--professional-color), var(--professional-hover));
+        color: white;
+        box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    }
+
+    .btn-professional:hover {
+        background: linear-gradient(to right, var(--professional-hover), var(--professional-color));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+    }
+
     /* Responsive adjustments */
     @media (max-width: 1024px) {
         .portal-header h1 {
@@ -429,8 +443,25 @@
                         <h2>Administrator Access</h2>
                         <p>Full system access with administrative privileges. Includes user management, system
                             configuration, and audit logs.</p>
-                        <a href="admin.php" class="btn btn-primary">
+                        <a href="admin.html" class="btn btn-primary">
                             <i class="fas fa-lock-open"></i> Continue as Admin
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Professional Access Card -->
+                <div class="access-card">
+                    <div class="card-badge">Elevated Access</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Professional Interface">
+                    </div>
+                    <div class="card-content">
+                        <h2>Professional Access</h2>
+                        <p>Advanced access for certified professionals with specialized tools, analytics dashboards, and
+                            reporting capabilities.</p>
+                        <a href="professional.html" class="btn btn-professional">
+                            <i class="fas fa-user-tie"></i> Continue as Professional
                         </a>
                     </div>
                 </div>
@@ -446,7 +477,7 @@
                         <h2>Standard User Access</h2>
                         <p>Access to approved system features based on your role permissions. Includes dashboard,
                             reports, and task management.</p>
-                        <a href="user.php" class="btn btn-secondary">
+                        <a href="user.html" class="btn btn-secondary">
                             <i class="fas fa-user"></i> Continue as User
                         </a>
                     </div>
