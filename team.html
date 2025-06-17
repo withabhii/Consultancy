@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expert Consultants Directory | CounSellore</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-     <meta name="description"
-        content="Professional consultancy services tailored for Legal, CA, and CS firms. We provide expert guidance in compliance, business setup, regulatory support, 
+    <meta name="description" content="Professional consultancy services tailored for Legal, CA, and CS firms. We provide expert guidance in compliance, business setup, regulatory support, 
         and strategic advisory—empowering firms to grow efficiently and stay compliant.">
     <link rel="icon" type="image/x-icon" href="Images\couns.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary: #2c3e50;
@@ -261,32 +260,34 @@
             display: none;
         }
 
-        /* Mobile Menu Toggle */
+        /* Style for the menu toggle button */
         .menu-toggle {
             display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            z-index: 1005;
-            padding: 10px;
+            /* Hidden by default */
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 30px;
-            height: 25px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            z-index: 1000;
         }
 
         .menu-toggle span {
             display: block;
             width: 100%;
             height: 3px;
-            background-color: var(--primary);
-            border-radius: 2px;
-            transition: all 0.3s ease-in-out;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
+        /* Optional: Animation when active */
         .menu-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+            transform: translateY(10px) rotate(45deg);
         }
 
         .menu-toggle.active span:nth-child(2) {
@@ -294,13 +295,14 @@
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-10px) rotate(-45deg);
         }
 
         /* Mobile Styles */
         @media (max-width: 992px) {
             .menu-toggle {
                 display: flex;
+                /* Show only in mobile view */
             }
 
             .nav-container {
@@ -872,7 +874,7 @@
 </head>
 
 <body>
-      <header id="header">
+    <header id="header">
         <div class="container">
             <nav>
                 <div class="logo-container">
@@ -888,7 +890,7 @@
                         <li class="dropdown">
                             <a href="#services">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services</a></li>
+                                <li><a href="law.html"><i class="fas fa-gavel"></i> Legal Services(Lawyers)</a></li>
                                 <li><a href="ca.html"><i class="fas fa-calculator"></i> CA Services</a></li>
                                 <li><a href="cs.html"><i class="fas fa-briefcase"></i> CS Services</a></li>
                             </ul>
@@ -913,7 +915,6 @@
             </nav>
         </div>
     </header>
-
     <main>
         <div class="container">
             <div class="page-title">
@@ -1120,7 +1121,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="team.html">Our Team</a></li>
-                        <li><a href="home.html#contact">Contact Us</a></li>
+                        <li><a href="index.html?#contact-section">Contact Us</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
@@ -1154,6 +1155,7 @@
             </div>
         </div>
     </footer>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1191,6 +1193,7 @@
                     document.body.style.overflow = isExpanded ? 'hidden' : '';
                 });
             }
+
 
             // Mobile dropdown toggle
             dropdowns.forEach(dropdown => {
