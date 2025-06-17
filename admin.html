@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Admin Portal | Enterprise Authentication</title>
-     <meta name="description"
-        content="Professional consultancy services tailored for Legal, CA, and CS firms. We provide expert guidance in compliance, business setup, regulatory support, 
+    <meta name="description" content="Professional consultancy services tailored for Legal, CA, and CS firms. We provide expert guidance in compliance, business setup, regulatory support, 
         and strategic advisory—empowering firms to grow efficiently and stay compliant.">
     <link rel="icon" type="image/x-icon" href="Images\couns.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,435 +13,488 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    :root {
-        --primary-color: #4f46e5;
-        --primary-hover: #4338ca;
-        --primary-light: #e0e7ff;
-        --dark-color: #111827;
-        --text-color: #111827;
-        --text-secondary: #6b7280;
-        --border-color: #e5e7eb;
-        --light-bg: #f9fafb;
-        --success-color: #10b981;
-        --error-color: #ef4444;
-        --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
-        --elevation-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --elevation-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    html,
-    body {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f8fafc;
-        color: var(--text-color);
-        background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        position: relative;
-        padding: 20px;
-    }
-
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 100%);
-        z-index: -1;
-    }
-
-    /* Main Container */
-    .auth-container {
-        display: flex;
-        width: 100%;
-        max-width: 1100px;
-        height: 90vh;
-        max-height: 700px;
-        background: white;
-        border-radius: 16px;
-        box-shadow: var(--elevation-lg);
-        overflow: hidden;
-        transition: var(--transition);
-    }
-
-    .auth-container:hover {
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
-
-    /* Visual Section */
-    .visual-section {
-        flex: 1;
-        position: relative;
-        background: linear-gradient(135deg, #6366f1, #8b5cf6);
-        overflow: hidden;
-    }
-
-    .visual-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-        z-index: 1;
-    }
-
-    .visual-content {
-        position: absolute;
-        bottom: 40px;
-        left: 40px;
-        right: 40px;
-        color: white;
-        z-index: 2;
-    }
-
-    .visual-content h3 {
-        font-size: 22px;
-        margin-bottom: 12px;
-        font-weight: 600;
-    }
-
-    .visual-content p {
-        font-size: 14px;
-        opacity: 0.9;
-        line-height: 1.6;
-    }
-
-    /* Form Section */
-    .form-section {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        padding: 50px;
-        overflow: hidden;
-    }
-
-    .form-content {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    /* Branding */
-    .brand-header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .brand-logo {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
-        border-radius: 16px;
-        margin-bottom: 25px;
-        box-shadow: var(--elevation-md);
-    }
-
-    .brand-logo img {
-        height: 60%;
-        width: auto;
-        filter: brightness(0) invert(1);
-    }
-
-    .brand-header h1 {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 12px;
-        letter-spacing: -0.5px;
-    }
-
-    .brand-header p {
-        color: var(--text-secondary);
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    /* Form Elements */
-    .auth-form {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--border-color) transparent;
-        padding-right: 5px;
-    }
-
-    .auth-form::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    .auth-form::-webkit-scrollbar-thumb {
-        background-color: var(--border-color);
-        border-radius: 10px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 500;
-        font-size: 14px;
-        color: var(--text-color);
-    }
-
-    .input-wrapper {
-        position: relative;
-    }
-
-    .input-icon {
-        position: absolute;
-        left: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--text-secondary);
-        font-size: 16px;
-    }
-
-    .form-input {
-        width: 100%;
-        padding: 14px 16px 14px 48px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 15px;
-        transition: var(--transition);
-        background-color: var(--light-bg);
-    }
-
-    .form-input:focus {
-        border-color: var(--primary-color);
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-        background-color: white;
-    }
-
-    /* Buttons */
-    .form-actions {
-        display: flex;
-        gap: 16px;
-        margin-top: 30px;
-    }
-
-    .btn {
-        flex: 1;
-        padding: 14px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .btn-primary {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-    }
-
-    .btn-primary:hover {
-        background-color: var(--primary-hover);
-        transform: translateY(-2px);
-        box-shadow: var(--elevation-md);
-    }
-
-    .btn-secondary {
-        background-color: white;
-        color: var(--text-color);
-        border: 1px solid var(--border-color);
-    }
-
-    .btn-secondary:hover {
-        background-color: var(--light-bg);
-        border-color: var(--primary-color);
-    }
-
-    /* Security Footer */
-    .security-footer {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid var(--border-color);
-        text-align: center;
-        font-size: 12px;
-        color: var(--text-secondary);
-    }
-
-    .security-footer p {
-        margin-bottom: 5px;
-    }
-
-    /* Back Navigation */
-    .back-nav {
-        position: fixed;
-        top: 24px;
-        left: 24px;
-        z-index: 1000;
-    }
-
-    .back-btn {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 10px 16px;
-        border-radius: 8px;
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-        font-size: 14px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: var(--transition);
-    }
-
-    .back-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Loading State */
-    .btn-loading {
-        position: relative;
-        pointer-events: none;
-        color: transparent;
-    }
-
-    .btn-loading::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        border: 3px solid transparent;
-        border-top-color: white;
-        border-radius: 50%;
-        animation: button-loading-spinner 1s linear infinite;
-    }
-
-    @keyframes button-loading-spinner {
-        from {
-            transform: rotate(0turn);
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #e0e7ff;
+            --dark-color: #111827;
+            --text-color: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --light-bg: #f9fafb;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+            --elevation-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --elevation-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        to {
-            transform: rotate(1turn);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-    }
 
-    /* Responsive Design */
-    @media (max-width: 1024px) {
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8fafc;
+            color: var(--text-color);
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            padding: 20px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 100%);
+            z-index: -1;
+        }
+
+        /* Main Container */
         .auth-container {
-            max-width: 900px;
-            height: 85vh;
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            min-height: 500px;
+            height: auto;
+            max-height: 90vh;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--elevation-lg);
+            overflow: hidden;
+            transition: var(--transition);
         }
 
-        .form-section {
-            padding: 40px;
+        .auth-container:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Visual Section */
+        .visual-section {
+            flex: 1;
+            position: relative;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            overflow: hidden;
+            min-height: 250px;
+        }
+
+        .visual-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+            z-index: 1;
+        }
+
+        .visual-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .visual-content {
-            left: 30px;
-            right: 30px;
-            bottom: 30px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .auth-container {
-            flex-direction: column;
-            max-height: 95vh;
-            height: auto;
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            color: white;
+            z-index: 2;
         }
 
-        .visual-section {
-            min-height: 200px;
-            order: -1;
+        .visual-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
+        .visual-content p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Form Section */
         .form-section {
-            padding: 35px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+            overflow-y: auto;
         }
 
+        .form-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Branding */
         .brand-header {
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .brand-logo {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: var(--elevation-md);
         }
-    }
 
-    @media (max-width: 576px) {
-        body {
-            padding: 15px;
-        }
-
-        .form-section {
-            padding: 30px 25px;
+        .brand-logo img {
+            height: 60%;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .brand-header h1 {
-            font-size: 24px;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
         .brand-header p {
-            font-size: 14px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
         }
 
-        .form-actions {
+        /* Form Elements */
+        .auth-form {
+            flex: 1;
+            display: flex;
             flex-direction: column;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: var(--transition);
+            background-color: var(--light-bg);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            background-color: white;
+        }
+
+        /* Buttons */
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 30px;
+            width: 100%;
         }
 
         .btn {
-            width: 100%;
+            flex: 1;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 120px;
         }
-    }
 
-    @media (max-width: 400px) {
-        .form-section {
-            padding: 25px 20px;
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
         }
 
-        .brand-header h1 {
-            font-size: 22px;
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--elevation-md);
         }
-    }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-bg);
+            border-color: var(--primary-color);
+        }
+
+        /* Security Footer */
+        .security-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .security-footer p {
+            margin-bottom: 5px;
+        }
+
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 1000;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Loading State */
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+            color: transparent;
+        }
+
+        .btn-loading::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: button-loading-spinner 1s linear infinite;
+        }
+
+        @keyframes button-loading-spinner {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .auth-container {
+                max-width: 900px;
+                max-height: 85vh;
+            }
+
+            .form-section {
+                padding: 40px;
+            }
+
+            .visual-content {
+                left: 30px;
+                right: 30px;
+                bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+                max-height: 90vh;
+                height: auto;
+                min-height: auto;
+            }
+
+            .visual-section {
+                min-height: 200px;
+                order: -1;
+                flex: 0 0 auto;
+            }
+
+            .form-section {
+                padding: 35px 30px;
+                flex: 1;
+                overflow-y: auto;
+            }
+
+            .brand-header {
+                margin-bottom: 30px;
+            }
+
+            .brand-logo {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 20px;
+            }
+
+            .visual-content {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .visual-content h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding: 15px;
+                display: block;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .auth-container {
+                max-height: none;
+                height: auto;
+                margin: 20px 0;
+            }
+
+            .form-section {
+                padding: 30px 25px;
+            }
+
+            .brand-header h1 {
+                font-size: 24px;
+            }
+
+            .brand-header p {
+                font-size: 14px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .visual-content {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .visual-content h3 {
+                font-size: 18px;
+            }
+
+            .visual-content p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .form-section {
+                padding: 25px 20px;
+            }
+
+            .brand-header h1 {
+                font-size: 22px;
+            }
+
+            .back-nav {
+                top: 15px;
+                left: 15px;
+            }
+
+            .back-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+
+        /* Prevent scrolling on the form */
+        .no-scroll {
+            overflow: hidden;
+        }
     </style>
 </head>
 
@@ -510,39 +562,60 @@
                 </form>
 
                 <!-- Security Footer -->
-                <!-- <div class="security-footer">
+                <div class="security-footer">
                     <p><i class="fas fa-shield-alt"></i> All activities are monitored and recorded</p>
-                    <p>© 2023 SecureShield Enterprise. v4.3.0</p>
-                </div> -->
+                <p>© <span id="currentYear"></span> CounSellore Consultants. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-    document.getElementById('authForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const authBtn = document.getElementById('authBtn');
-        authBtn.classList.add('btn-loading');
-        authBtn.disabled = true;
+        document.getElementById('authForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const authBtn = document.getElementById('authBtn');
+            authBtn.classList.add('btn-loading');
+            authBtn.disabled = true;
 
-        // Simulate authentication process
-        setTimeout(() => {
-            authBtn.classList.remove('btn-loading');
-            authBtn.disabled = false;
+            // Add no-scroll class to body to prevent scrolling during submission
+            document.body.classList.add('no-scroll');
 
-            // In production, this would submit the form
-            // For demo, show success then redirect
-            alert('Authentication successful! Access granted.');
-            // window.location.href = '/admin/dashboard';
-        }, 2000);
-    });
+            // Simulate authentication process
+            setTimeout(() => {
+                authBtn.classList.remove('btn-loading');
+                authBtn.disabled = false;
+                document.body.classList.remove('no-scroll');
 
-    // Prevent form scrolling
-    document.querySelector('.auth-form').addEventListener('scroll', function(e) {
-        if (this.scrollTop > 0) {
-            this.scrollTop = 0;
+                // In production, this would submit the form
+                // For demo, show success then redirect
+                alert('Authentication successful! Access granted.');
+                // window.location.href = '/admin/dashboard';
+            }, 2000);
+        });
+
+        // Adjust form section height on mobile to prevent overflow
+        function adjustFormHeight() {
+            if (window.innerWidth <= 768) {
+                const visualSection = document.querySelector('.visual-section');
+                const formSection = document.querySelector('.form-section');
+                const windowHeight = window.innerHeight;
+                const visualHeight = visualSection.offsetHeight;
+
+                // Set form section height to remaining viewport space
+                formSection.style.maxHeight = (windowHeight - visualHeight - 40) + 'px';
+            } else {
+                document.querySelector('.form-section').style.maxHeight = 'none';
+            }
         }
-    });
+
+         // Set current year in footer
+            if (currentYear) {
+                currentYear.textContent = new Date().getFullYear();
+            }
+
+        // Run on load and resize
+        window.addEventListener('load', adjustFormHeight);
+        window.addEventListener('resize', adjustFormHeight);
     </script>
 </body>
 
